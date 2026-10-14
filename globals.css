@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-rose-50 font-sans text-base leading-relaxed text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-sky-200 text-ink;
+  }
+
+  /* Видимый фокус с клавиатуры везде, где не задан свой */
+  :focus-visible {
+    outline: 3px solid #33304f;
+    outline-offset: 2px;
+  }
+
+  /* Уважаем настройку «уменьшить движение» */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
